@@ -26,6 +26,15 @@
   "author": "saguna nathani",
   "type": "commonjs",
   "scripts": {
+    "start": "parcel src/index.html",
     "test": "\"test\": \"echo \\\"No test specified\\\" && exit 0\""
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.15.4",
+    "parcel": "^2.15.4"
   }
 }
