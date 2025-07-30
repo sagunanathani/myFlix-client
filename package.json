@@ -1,0 +1,31 @@
+{
+  "name": "myflix-client",
+  "version": "1.0.0",
+  "description": "A client-side application for the myFlix movie app, built with React. It allows users to browse movies, view details, and manage their user profile.",
+  "keywords": [
+    "react",
+    "myflix",
+    "movies",
+    "client",
+    "frontend",
+    "movie-app",
+    "SPA",
+    "javascript",
+    "parcel",
+    "REST API"
+  ],
+  "homepage": "https://github.com/sagunanathani/myFlix-client#readme",
+  "bugs": {
+    "url": "https://github.com/sagunanathani/myFlix-client/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sagunanathani/myFlix-client.git"
+  },
+  "license": "ISC",
+  "author": "saguna nathani",
+  "type": "commonjs",
+  "scripts": {
+    "test": "\"test\": \"echo \\\"No test specified\\\" && exit 0\""
+  }
+}
