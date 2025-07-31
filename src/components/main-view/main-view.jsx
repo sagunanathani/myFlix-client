@@ -4,7 +4,7 @@ import { MovieView } from "../movie-view/movie-view";
 // Export MainView so it can be used in other files
 // const MainView = () => {} defines a functional component
 // const means MainView can't be reassigned
-export const MainView = () => {
+const MainView = () => {
   // This is a functional component that returns JSX (looks like HTML)
   const [movies, setMovies] = useState([
     {
@@ -58,3 +58,5 @@ export const MainView = () => {
     </div>
   );
 };
+
+export default MainView;
