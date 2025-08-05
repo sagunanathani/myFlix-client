@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 // Export MainView so it can be used in other files
@@ -51,7 +51,7 @@ const MainView = () => {
 
   return (
     // React.Fragment / <>...</> /  <div> </div> lets us return multiple elements without a wrapper div
-    <div>
+    <div className="card-container">
       {movies.map((movie) => (
         <MovieCard
           key={movie._id}

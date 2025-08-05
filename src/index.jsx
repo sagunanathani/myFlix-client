@@ -6,7 +6,23 @@ import "./index.scss";
 
 // Main component (will eventually use all the others)
 const App = () => {
-  return <MainView />;
+  return (
+    <div className="app-container">
+      <header className="site-header">
+        <h1>🎬 myFlix</h1>
+        <p>Discover, watch & love your movies</p>
+      </header>
+
+      <main>
+        <MainView />
+      </main>
+
+      <footer className="site-footer">
+        <p>© {new Date().getFullYear()} myFlix.</p>
+        Built with ❤️ by Saguna Nathani
+      </footer>
+    </div>
+  );
 };
 
 // Finds the root of your app

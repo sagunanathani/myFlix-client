@@ -1,19 +1,14 @@
 // import the PropTypes library
 import PropTypes from "prop-types";
+import "./MovieCard.css";
 
 // The MovieCard function component
 export const MovieCard = ({ movie, onMovieClick }) => {
   return (
-    <div
-      onClick={() => onMovieClick(movie)}
-      style={{
-        cursor: "pointer",
-        marginBottom: "1rem",
-        border: "1px solid #ccc",
-        padding: "1rem",
-      }}
-    >
+    <div className="movie-card" onClick={() => onMovieClick(movie)}>
+      <img src={movie.ImagePath} alt={`${movie.Title} poster`} />
       <h3>{movie.Title}</h3>
+      <button className="view-button">View Details</button>
     </div>
   );
 };
