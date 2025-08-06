@@ -19,7 +19,6 @@ export const MainView = () => {
 
   const [token, setToken] = useState(() => localStorage.getItem("token"));
   const [movies, setMovies] = useState([]);
-  const [view, setView] = useState("login"); // "login" or "signup"
 
 <<<<<<< HEAD
   // Fetch movies only if token exists

@@ -18,11 +18,7 @@ export const LoginView = ({ onLoggedIn }) => {
 
     const data = { username: username, password: password };
 
-<<<<<<< HEAD
-    fetch("https://flix-fusion-api-movies-51cd1c6d37f8.herokuapp.com/login", {
-=======
     fetch("https://myflix-movie-api-2r07.onrender.com/login", {
->>>>>>> 10cbc89 (Save local changes before pulling from main)
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
