@@ -1,0 +1,140 @@
+
+/* Buttons */
+.Signup-login {
+  background-color: #0078D7;
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #005a9e;
+} 
+
+.signup-container {
+  background-color: #ffffff;
+  width: 450px;
+  padding: 30px 25px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.signup-container h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.signup-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-align: justify;
+}
+
+.signup-container p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.signup-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.signup-container input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.signup-container button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-container button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.signup-container .switch-auth {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #666;
+}
+
+.signup-container .switch-auth button {
+  background: none;
+  border: none;
+  color: #4CAF50;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .signup-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .signup-container h2 {
+    font-size: 20px;
+  }
+
+  .signup-container input,
+  .signup-container button[type="submit"] {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .signup-container p,
+  .signup-container .switch-auth {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-container {
+    width: 100%;
+    padding: 15px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .signup-container h2 {
+    font-size: 18px;
+  }
+
+  .signup-container input,
+  .signup-container button[type="submit"],
+  .Signup-login {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .signup-container label {
+    font-size: 13px;
+  }
+
+  .signup-container .switch-auth {
+    font-size: 11px;
+  }
+}
