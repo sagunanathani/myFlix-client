@@ -16195,6 +16195,7 @@ const MainView = ()=>{
     });
     const [token, setToken] = (0, _react.useState)(()=>localStorage.getItem("token"));
     const [movies, setMovies] = (0, _react.useState)([]);
+<<<<<<< HEAD
     const [view, setView] = (0, _react.useState)("login"); // "login" or "signup"
     // Fetch movies only if token exists
     (0, _react.useEffect)(()=>{
@@ -16207,6 +16208,12 @@ const MainView = ()=>{
         }).then((res)=>{
             if (!res.ok) throw new Error(`HTTP error! ${res.status}`);
             return res.json();
+=======
+    (0, _react.useEffect)(()=>{
+        fetch("https://myflix-movie-api-2r07.onrender.com/movies").then((response)=>{
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+            return response.json();
+>>>>>>> 10cbc89 (Save local changes before pulling from main)
         }).then((data)=>{
             setMovies(data);
         }).catch((error)=>{
@@ -16289,7 +16296,11 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
+<<<<<<< HEAD
         lineNumber: 88,
+=======
+        lineNumber: 32,
+>>>>>>> 10cbc89 (Save local changes before pulling from main)
         columnNumber: 7
     }, undefined);
     return(// React.Fragment / <>...</> /  <div> </div> lets us return multiple elements without a wrapper div
@@ -16327,6 +16338,7 @@ const MainView = ()=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/main-view/main-view.jsx",
+<<<<<<< HEAD
                 lineNumber: 98,
                 columnNumber: 7
             }, undefined),
@@ -16349,6 +16361,14 @@ const MainView = ()=>{
     }, void 0, true, {
         fileName: "src/components/main-view/main-view.jsx",
         lineNumber: 97,
+=======
+                lineNumber: 43,
+                columnNumber: 9
+            }, undefined))
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 41,
+>>>>>>> 10cbc89 (Save local changes before pulling from main)
         columnNumber: 5
     }, undefined));
 };
@@ -16441,7 +16461,11 @@ $RefreshReg$(_c, "MovieCard");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
+<<<<<<< HEAD
 },{"react/jsx-dev-runtime":"dVPUn","prop-types":"GNqOQ","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./movie-card.css":"dezC3"}],"GNqOQ":[function(require,module,exports,__globalThis) {
+=======
+},{"react/jsx-dev-runtime":"dVPUn","prop-types":"GNqOQ","./MovieCard.css":"9S1LZ","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"GNqOQ":[function(require,module,exports,__globalThis) {
+>>>>>>> 10cbc89 (Save local changes before pulling from main)
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -17188,7 +17212,11 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
+<<<<<<< HEAD
 },{"24ba1e58d167a82c":"ggXkd","898bc82f39d83f7c":"cnEYJ"}],"jnFvT":[function(require,module,exports,__globalThis) {
+=======
+},{"24ba1e58d167a82c":"ggXkd","898bc82f39d83f7c":"cnEYJ"}],"9S1LZ":[function() {},{}],"jnFvT":[function(require,module,exports,__globalThis) {
+>>>>>>> 10cbc89 (Save local changes before pulling from main)
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -19496,7 +19524,11 @@ function $da9882e673ac146b$var$ErrorOverlay() {
     return null;
 }
 
+<<<<<<< HEAD
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dezC3":[function() {},{}],"dkfGy":[function(require,module,exports,__globalThis) {
+=======
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dkfGy":[function(require,module,exports,__globalThis) {
+>>>>>>> 10cbc89 (Save local changes before pulling from main)
 var $parcel$ReactRefreshHelpers$2262 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$2262.init();
 var prevRefreshReg = globalThis.$RefreshReg$;

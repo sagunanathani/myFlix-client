@@ -21,6 +21,7 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [view, setView] = useState("login"); // "login" or "signup"
 
+<<<<<<< HEAD
   // Fetch movies only if token exists
   useEffect(() => {
     if (!token) {
@@ -33,6 +34,13 @@ export const MainView = () => {
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! ${res.status}`);
+=======
+  useEffect(() => {
+    fetch("https://myflix-movie-api-2r07.onrender.com/movies")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+>>>>>>> 10cbc89 (Save local changes before pulling from main)
         }
         return res.json();
       })
