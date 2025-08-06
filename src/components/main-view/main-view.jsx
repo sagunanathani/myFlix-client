@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import axios from "axios";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 // Export MainView so it can be used in other files
@@ -9,20 +8,8 @@ const MainView = () => {
   // This is a functional component that returns JSX (looks like HTML)
   const [movies, setMovies] = useState([]);
 
-  /*   useEffect(() => {
-    axios
-      .get("https://flix-fusion-api-movies-51cd1c6d37f8.herokuapp.com/movies")
-      .then((response) => {
-        setMovies(response.data);
-        console.log("Movies from API:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching movies:", error);
-      });
-  }, []); */
-
   useEffect(() => {
-    fetch("https://flix-fusion-api-movies-51cd1c6d37f8.herokuapp.com/movies")
+    fetch("https://myflix-movie-api-2r07.onrender.com/movies")
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
