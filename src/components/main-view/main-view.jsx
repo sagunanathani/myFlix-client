@@ -19,6 +19,7 @@ export const MainView = () => {
 
   const [token, setToken] = useState(() => localStorage.getItem("token"));
   const [movies, setMovies] = useState([]);
+  const [view, setView] = useState("login");
 
   // Fetch movies only if token exists
   useEffect(() => {
@@ -26,7 +27,7 @@ export const MainView = () => {
       //console.error("No token found, please log in first");
       return;
     }
-    fetch("https://flix-fusion-api-movies-51cd1c6d37f8.herokuapp.com/movies", {
+    fetch("https://myflix-movie-api-2r07.onrender.com/movies", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {

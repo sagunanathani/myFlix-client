@@ -16195,25 +16195,18 @@ const MainView = ()=>{
     });
     const [token, setToken] = (0, _react.useState)(()=>localStorage.getItem("token"));
     const [movies, setMovies] = (0, _react.useState)([]);
-<<<<<<< HEAD
-    (0, _react.useEffect)(()=>{
-        fetch("https://myflix-movie-api-2r07.onrender.com/movies").then((response)=>{
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-            return response.json();
-=======
-    const [view, setView] = (0, _react.useState)("login"); // "login" or "signup"
+    const [view, setView] = (0, _react.useState)("login");
     // Fetch movies only if token exists
     (0, _react.useEffect)(()=>{
         if (!token) //console.error("No token found, please log in first");
         return;
-        fetch("https://flix-fusion-api-movies-51cd1c6d37f8.herokuapp.com/movies", {
+        fetch("https://myflix-movie-api-2r07.onrender.com/movies", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         }).then((res)=>{
             if (!res.ok) throw new Error(`HTTP error! ${res.status}`);
             return res.json();
->>>>>>> 9c757b9d5a47424b6ef92f8072e3da50a1833d37
         }).then((data)=>{
             setMovies(data);
         }).catch((error)=>{
@@ -16296,11 +16289,7 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-<<<<<<< HEAD
-        lineNumber: 32,
-=======
         lineNumber: 88,
->>>>>>> 9c757b9d5a47424b6ef92f8072e3da50a1833d37
         columnNumber: 7
     }, undefined);
     return(// React.Fragment / <>...</> /  <div> </div> lets us return multiple elements without a wrapper div
@@ -16338,14 +16327,6 @@ const MainView = ()=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/main-view/main-view.jsx",
-<<<<<<< HEAD
-                lineNumber: 43,
-                columnNumber: 9
-            }, undefined))
-    }, void 0, false, {
-        fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 41,
-=======
                 lineNumber: 98,
                 columnNumber: 7
             }, undefined),
@@ -16368,7 +16349,6 @@ const MainView = ()=>{
     }, void 0, true, {
         fileName: "src/components/main-view/main-view.jsx",
         lineNumber: 97,
->>>>>>> 9c757b9d5a47424b6ef92f8072e3da50a1833d37
         columnNumber: 5
     }, undefined));
 };
@@ -16383,7 +16363,7 @@ $RefreshReg$(_c, "MainView");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","../movie-card/movie-card":"6BY1s","../movie-view/movie-view":"dkfGy","../login-view/login-view":"8ru9P","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../signup-view/signup-view":"nAl3Z","./main-view.css":"lTMRU"}],"6BY1s":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","../movie-card/movie-card":"6BY1s","../movie-view/movie-view":"dkfGy","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../login-view/login-view":"8ru9P","../signup-view/signup-view":"nAl3Z","./main-view.css":"lTMRU"}],"6BY1s":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$f387 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$f387.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -16461,11 +16441,7 @@ $RefreshReg$(_c, "MovieCard");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-<<<<<<< HEAD
-},{"react/jsx-dev-runtime":"dVPUn","prop-types":"GNqOQ","./MovieCard.css":"9S1LZ","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"GNqOQ":[function(require,module,exports,__globalThis) {
-=======
 },{"react/jsx-dev-runtime":"dVPUn","prop-types":"GNqOQ","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./movie-card.css":"dezC3"}],"GNqOQ":[function(require,module,exports,__globalThis) {
->>>>>>> 9c757b9d5a47424b6ef92f8072e3da50a1833d37
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -17212,11 +17188,7 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-<<<<<<< HEAD
-},{"24ba1e58d167a82c":"ggXkd","898bc82f39d83f7c":"cnEYJ"}],"9S1LZ":[function() {},{}],"jnFvT":[function(require,module,exports,__globalThis) {
-=======
 },{"24ba1e58d167a82c":"ggXkd","898bc82f39d83f7c":"cnEYJ"}],"jnFvT":[function(require,module,exports,__globalThis) {
->>>>>>> 9c757b9d5a47424b6ef92f8072e3da50a1833d37
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -19524,11 +19496,7 @@ function $da9882e673ac146b$var$ErrorOverlay() {
     return null;
 }
 
-<<<<<<< HEAD
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dkfGy":[function(require,module,exports,__globalThis) {
-=======
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dezC3":[function() {},{}],"dkfGy":[function(require,module,exports,__globalThis) {
->>>>>>> 9c757b9d5a47424b6ef92f8072e3da50a1833d37
 var $parcel$ReactRefreshHelpers$2262 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$2262.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -19697,7 +19665,7 @@ const LoginView = ({ onLoggedIn })=>{
             username: username,
             password: password
         };
-        fetch("https://flix-fusion-api-movies-51cd1c6d37f8.herokuapp.com/login", {
+        fetch("https://myflix-movie-api-2r07.onrender.com/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -19814,7 +19782,7 @@ $RefreshReg$(_c, "LoginView");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","prop-types":"GNqOQ","./login-view.css":"hGAfz"}],"hGAfz":[function() {},{}],"nAl3Z":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","prop-types":"GNqOQ","./login-view.css":"hGAfz","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"hGAfz":[function() {},{}],"nAl3Z":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$69e4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$69e4.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
