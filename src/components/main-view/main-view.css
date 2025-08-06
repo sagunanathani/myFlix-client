@@ -1,0 +1,31 @@
+/* === Welcome Section Styling === */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 1rem;
+}
+
+/* Welcome text */
+.user-info h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Logout button */
+.logout-button {
+  padding: 0.5rem 1.2rem;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}

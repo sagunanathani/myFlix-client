@@ -247,6 +247,257 @@ body {
   }
 }
 
+.login-container {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 20px #0000001a;
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-container label {
+  margin-bottom: .5rem;
+  font-weight: bold;
+  display: block;
+}
+
+.login-container input {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  margin-bottom: 1.2rem;
+  padding: .7rem;
+  font-size: 1rem;
+}
+
+.login-container button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  padding: .8rem;
+  font-size: 1rem;
+  transition: background-color .3s;
+}
+
+.login-container button:hover {
+  background-color: #45a049;
+}
+
+@media (width <= 768px) {
+  .login-container {
+    width: 90%;
+    margin: 50px auto;
+    padding: 1.5rem;
+  }
+
+  .login-container h2 {
+    font-size: 1.25rem;
+  }
+
+  .login-container input, .login-container button {
+    padding: .6rem;
+    font-size: .95rem;
+  }
+}
+
+@media (width <= 480px) {
+  .login-container {
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    margin: 30px auto;
+    padding: 1rem;
+  }
+
+  .login-container h2 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .login-container input, .login-container button {
+    padding: .5rem;
+    font-size: .9rem;
+  }
+
+  .login-container label {
+    font-size: .9rem;
+  }
+}
+
+.Signup-login {
+  color: #fff;
+  cursor: pointer;
+  background-color: #0078d7;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  padding: 12px 18px;
+  font-size: 16px;
+  transition: background .3s;
+}
+
+button:hover {
+  background-color: #005a9e;
+}
+
+.signup-container {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 450px;
+  padding: 30px 25px;
+  box-shadow: 0 5px 15px #0000001a;
+}
+
+.signup-container h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.signup-container label {
+  text-align: justify;
+  margin-bottom: .5rem;
+  font-weight: bold;
+  display: block;
+}
+
+.signup-container p {
+  color: #666;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.signup-container input {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.signup-container input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+.signup-container button[type="submit"] {
+  color: #fff;
+  cursor: pointer;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  transition: background-color .3s;
+}
+
+.signup-container button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.signup-container .switch-auth {
+  color: #666;
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.signup-container .switch-auth button {
+  color: #4caf50;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: bold;
+}
+
+@media (width <= 768px) {
+  .signup-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .signup-container h2 {
+    font-size: 20px;
+  }
+
+  .signup-container input, .signup-container button[type="submit"] {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .signup-container p, .signup-container .switch-auth {
+    font-size: 12px;
+  }
+}
+
+@media (width <= 480px) {
+  .signup-container {
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 15px;
+  }
+
+  .signup-container h2 {
+    font-size: 18px;
+  }
+
+  .signup-container input, .signup-container button[type="submit"], .Signup-login {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .signup-container label {
+    font-size: 13px;
+  }
+
+  .signup-container .switch-auth {
+    font-size: 11px;
+  }
+}
+
+.user-info {
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 1rem;
+  display: flex;
+}
+
+.user-info h2 {
+  color: #222;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.logout-button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #f44336;
+  border: none;
+  border-radius: 8px;
+  padding: .5rem 1.2rem;
+  font-size: 1rem;
+  transition: background-color .3s;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
+
 .my-flix {
   color: #4682b4;
 }
