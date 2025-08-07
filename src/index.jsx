@@ -1,5 +1,8 @@
 import { createRoot } from "react-dom/client";
 import MainView from "./components/main-view/main-view.jsx";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 // Import statement to indicate that you need to bundle `./index.scss`
 import "./index.scss";
@@ -9,12 +12,16 @@ const App = () => {
   return (
     <div className="app-container">
       <header className="site-header">
-        <h1>🎬 myFlix</h1>
+        <h1>🎬 Welcome to myFlix</h1>
         <p>Discover, watch & love your movies</p>
       </header>
 
       <main>
-        <MainView />
+        <Row className="justify-content-center my-4">
+          <Col md={10}>
+            <MainView />
+          </Col>
+        </Row>
       </main>
 
       <footer className="site-footer">

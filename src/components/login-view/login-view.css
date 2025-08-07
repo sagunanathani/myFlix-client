@@ -1,4 +1,8 @@
 /* login-view.css */
+/* Optional enhancements */
+body {
+  background-color: #f8f9fa;
+}
 
 .login-container {
   max-width: 400px;

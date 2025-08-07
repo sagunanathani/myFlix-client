@@ -6,6 +6,12 @@ import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import "./main-view.css";
 
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+
 // Export MainView so it can be used in other files
 // const MainView = () => {} defines a functional component
 // const means MainView can't be reassigned
@@ -19,7 +25,7 @@ export const MainView = () => {
 
   const [token, setToken] = useState(() => localStorage.getItem("token"));
   const [movies, setMovies] = useState([]);
-  const [view, setView] = useState("login"); // "login" or "signup"
+  const [view, setView] = useState("login");
 
   // Fetch movies only if token exists
   useEffect(() => {
@@ -27,7 +33,7 @@ export const MainView = () => {
       //console.error("No token found, please log in first");
       return;
     }
-    fetch("https://flix-fusion-api-movies-51cd1c6d37f8.herokuapp.com/movies", {
+    fetch("https://myflix-movie-api-2r07.onrender.com/movies", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {
@@ -44,82 +50,93 @@ export const MainView = () => {
       });
   }, [token]);
 
+  const handleLogout = () => {
+    setUser(null);
+    setToken(null);
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+  };
+
   if (!user) {
     return (
-      <>
-        {view === "login" ? (
-          <>
-            <LoginView
-              onLoggedIn={(user, token) => {
-                localStorage.setItem("user", JSON.stringify(user)); // store user
-                localStorage.setItem("token", token); //store token
-                setUser(user); //update state
-                setToken(token);
-              }}
-            />
-            <p>
-              Don't have an account?{" "}
-              <button
-                className="Signup-login"
-                onClick={() => setView("signup")}
-              >
-                Sign Up
-              </button>
-            </p>
-          </>
-        ) : (
-          <>
-            <SignupView />
-            <br />
-            <p>
-              Already have an account?{" "}
-              <button className="Signup-login" onClick={() => setView("login")}>
-                Log In
-              </button>
-            </p>
-          </>
-        )}
-      </>
+      <Container className="d-flex flex-column align-items-center justify-content-center">
+        <Card>
+          {view === "login" ? (
+            <>
+              <LoginView
+                onLoggedIn={(user, token) => {
+                  localStorage.setItem("user", JSON.stringify(user));
+                  localStorage.setItem("token", token);
+                  setUser(user);
+                  setToken(token);
+                }}
+              />
+              <div className="text-center mt-3">
+                <p>
+                  Don’t have an account?{" "}
+                  <Button
+                    variant="link"
+                    size="sm"
+                    onClick={() => setView("signup")}
+                  >
+                    Sign Up
+                  </Button>
+                </p>
+              </div>
+            </>
+          ) : (
+            <>
+              <SignupView />
+              <div className="text-center mt-3">
+                <p>
+                  Already registered?{" "}
+                  <Button
+                    variant="link"
+                    size="sm"
+                    onClick={() => setView("login")}
+                  >
+                    Log In
+                  </Button>
+                </p>
+              </div>
+            </>
+          )}
+        </Card>
+      </Container>
     );
   }
 
   if (selectedMovie) {
     return (
-      <MovieView
-        movie={selectedMovie}
-        onBackClick={() => setSelectedMovie(null)}
-      />
+      <Container className="py-4">
+        <MovieView
+          movie={selectedMovie}
+          onBackClick={() => setSelectedMovie(null)}
+        />
+      </Container>
     );
   }
 
   return (
-    // React.Fragment / <>...</> /  <div> </div> lets us return multiple elements without a wrapper div
-    <div>
-      <div className="user-info">
-        <button
-          className="logout-button"
-          onClick={() => {
-            setUser(null);
-            setToken(null);
-            //localStorage.clear();
-            localStorage.removeItem("user");
-            localStorage.removeItem("token");
-          }}
-        >
+    <Container>
+      <div className="d-flex justify-content-between align-items-center mt-4 mb-3">
+        <h2>Welcome, {user.username}!</h2>
+        <Button variant="danger" onClick={handleLogout}>
           Logout
-        </button>
-        <h1>Welcome, {user.username}!</h1>
+        </Button>
       </div>
-      <div className="card-container">
+
+      <Row>
         {movies.map((movie) => (
-          <MovieCard
-            key={movie._id}
-            movie={movie}
-            onMovieClick={(selectedMovie) => setSelectedMovie(selectedMovie)}
-          />
+          <Col md={3} sm={6} xs={12} className="mb-4" key={movie._id}>
+            <MovieCard
+              movie={movie}
+              onMovieClick={(selectedMovie) => setSelectedMovie(selectedMovie)}
+            />
+          </Col>
         ))}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 };
 

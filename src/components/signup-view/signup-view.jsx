@@ -1,4 +1,8 @@
 import { useState } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 import "./signup-view.css";
 
 export const SignupView = () => {
@@ -10,7 +14,7 @@ export const SignupView = () => {
   const handleSignup = (event) => {
     event.preventDefault();
 
-    fetch("https://flix-fusion-api-movies-51cd1c6d37f8.herokuapp.com/users", {
+    fetch("https://myflix-movie-api-2r07.onrender.com/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -35,56 +39,66 @@ export const SignupView = () => {
       });
   };
   return (
-    <div className="signup-container">
-      <h2>Sign Up</h2>
-      <p>Create your account to start watching!</p>
-      <form onSubmit={handleSignup}>
-        <label>
-          Username:
-          <input
-            name="username"
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            name="email"
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Birthday:
-          <input
-            name="birthday"
-            type="date"
-            placeholder="Birthday"
-            value={birthday}
-            onChange={(e) => setBirthday(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
+    <Container className="d-flex justify-content-center align-items-center mt-5">
+      <Card style={{ width: "28rem" }}>
+        <Card.Body>
+          <Card.Title className="text-center mb-4">Sign Up</Card.Title>
+          <Card.Text className="text-center mb-3">
+            Create your account to start watching!
+          </Card.Text>
+
+          <Form onSubmit={handleSignup}>
+            <Form.Group className="mb-3" controlId="formUsername">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBirthday">
+              <Form.Label>Birthday</Form.Label>
+              <Form.Control
+                type="date"
+                value={birthday}
+                onChange={(e) => setBirthday(e.target.value)}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-4" controlId="formPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Create a password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </Form.Group>
+
+            <div className="d-grid">
+              <Button variant="success" type="submit">
+                Sign Up
+              </Button>
+            </div>
+          </Form>
+        </Card.Body>
+      </Card>
+    </Container>
   );
 };

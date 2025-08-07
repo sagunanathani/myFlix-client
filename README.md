@@ -38,21 +38,21 @@ Date input type for birthday
 myFlix-client/
 ├── package.json
 └── src/
-    ├── index.html
-    ├── index.jsx
-    ├── index.scss
-    └── components/
-        ├── login-view/
-        │   └── login-view.jsx
-        ├── signup-view/
-        │   └── signup-view.jsx
-        ├── main-view/
-        │   └── main-view.jsx
-        ├── movie-card/
-        │   └── movie-card.jsx
-        └── movie-view/
-            └── movie-view.jsx
-            
+├── index.html
+├── index.jsx
+├── index.scss
+└── components/
+├── login-view/
+│ └── login-view.jsx
+├── signup-view/
+│ └── signup-view.jsx
+├── main-view/
+│ └── main-view.jsx
+├── movie-card/
+│ └── movie-card.jsx
+└── movie-view/
+└── movie-view.jsx
+
 💻 To Run This Branch Locally:
 git checkout auth-forms-feature /
 npm install /
