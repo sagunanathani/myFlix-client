@@ -1,5 +1,24 @@
+@import "~bootstrap/scss/bootstrap";
+
 $color: steelblue;
+
+$primary: #1e90ff; // DodgerBlue
+$body-bg: #f0f8ff; // AliceBlue
 
 .my-flix {
   color: $color;
+}
+
+.app-container {
+  min-height: 100vh;
+}
+
+.site-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.site-footer {
+  margin-top: auto;
+  font-size: 0.9rem;
 }

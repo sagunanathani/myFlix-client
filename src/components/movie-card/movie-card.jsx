@@ -1,15 +1,35 @@
 // import the PropTypes library
 import PropTypes from "prop-types";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import "./movie-card.css";
 
 // The MovieCard function component
 export const MovieCard = ({ movie, onMovieClick }) => {
   return (
-    <div className="movie-card" onClick={() => onMovieClick(movie)}>
-      <img src={movie.ImagePath} alt={`${movie.Title} poster`} />
-      <h3>{movie.Title}</h3>
-      <button className="view-button">View Details</button>
-    </div>
+    <Card
+      className="movie-card shadow-sm"
+      onClick={() => onMovieClick(movie)}
+      style={{ cursor: "pointer" }}
+    >
+      <Card.Img
+        variant="top"
+        src={movie.ImagePath}
+        alt={`${movie.Title} poster`}
+      />
+      <Card.Body>
+        <Card.Title>{movie.Title}</Card.Title>
+        <Button
+          variant="primary"
+          onClick={(e) => {
+            e.stopPropagation();
+            onMovieClick(movie);
+          }}
+        >
+          View Details
+        </Button>
+      </Card.Body>
+    </Card>
   );
 };
 
