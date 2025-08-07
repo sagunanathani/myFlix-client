@@ -1,0 +1,35 @@
+.movie-view-card {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}
+
+.movie-view-section {
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+  border-radius: 16px;
+}
+
+.custom-box {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.movie-view-card .card-body {
+  padding: 20px;
+}
+
+.movie-view-card .card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.movie-view-card .card-text {
+  margin-bottom: 0.75rem;
+}
