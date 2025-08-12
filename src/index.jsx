@@ -3,6 +3,7 @@ import MainView from "./components/main-view/main-view.jsx";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // Import statement to indicate that you need to bundle `./index.scss`
 import "./index.scss";
@@ -11,10 +12,10 @@ import "./index.scss";
 const App = () => {
   return (
     <div className="app-container">
-      <header className="site-header">
+      {/* <header className="site-header">
         <h1>🎬 Welcome to myFlix</h1>
         <p>Discover, watch & love your movies</p>
-      </header>
+      </header> */}
 
       <main>
         <Row className="justify-content-center my-4">

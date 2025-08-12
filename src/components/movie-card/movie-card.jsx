@@ -3,15 +3,12 @@ import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "./movie-card.css";
+import { Link } from "react-router-dom";
 
 // The MovieCard function component
-export const MovieCard = ({ movie, onMovieClick }) => {
+export const MovieCard = ({ movie }) => {
   return (
-    <Card
-      className="movie-card shadow-sm"
-      onClick={() => onMovieClick(movie)}
-      style={{ cursor: "pointer" }}
-    >
+    <Card className="movie-card shadow-sm">
       <Card.Img
         variant="top"
         src={movie.ImagePath}
@@ -19,15 +16,9 @@ export const MovieCard = ({ movie, onMovieClick }) => {
       />
       <Card.Body>
         <Card.Title>{movie.Title}</Card.Title>
-        <Button
-          variant="primary"
-          onClick={(e) => {
-            e.stopPropagation();
-            onMovieClick(movie);
-          }}
-        >
-          View Details
-        </Button>
+        <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
+          <Button variant="link">Open</Button>
+        </Link>
       </Card.Body>
     </Card>
   );
@@ -49,5 +40,4 @@ MovieCard.propTypes = {
     }),
     ImagePath: PropTypes.string,
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired,
 };

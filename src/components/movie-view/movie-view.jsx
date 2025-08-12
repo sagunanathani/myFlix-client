@@ -1,3 +1,5 @@
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -5,7 +7,32 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "./movie-view.css";
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = () => {
+  const { movieId } = useParams();
+  const navigate = useNavigate();
+  const [movie, setMovie] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    fetch(`https://myflix-movie-api-2r07.onrender.com/movies/id/${movieId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => {
+            throw new Error(`Error ${res.status}: ${text}`);
+          });
+        }
+        return res.json();
+      })
+      .then((data) => setMovie(data))
+      .catch((error) => console.error("Error fetching movie:", error));
+  }, [movieId]);
+
+  if (!movie) {
+    return <div>Loading movie...</div>;
+  }
+
   return (
     <Container className="my-5 movie-view-section">
       <Row className="justify-content-center">
@@ -31,7 +58,7 @@ export const MovieView = ({ movie, onBackClick }) => {
                   <Card.Text>
                     <strong>Director:</strong> {movie.Director?.Name}
                   </Card.Text>
-                  <Button className="back-button" onClick={onBackClick}>
+                  <Button className="back-button" onClick={() => navigate(-1)}>
                     <i className="fas fa-arrow-left me-2"></i> Back to Movies
                   </Button>
                 </Card.Body>
