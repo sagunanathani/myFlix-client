@@ -15,7 +15,6 @@ body {
 }
 
 /* styles.css or imported CSS module */
-
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -23,12 +22,25 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border-radius: 12px;
 }
 
+.card-container:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+}
+
+/* Fixed size cards with flex layout inside for content */
 .movie-card {
-  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  height: 450px;          /* fixed height */
   border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: white;
+  transition: transform 0.2s ease-in-out;
 }
 
 .movie-card:hover {
@@ -36,22 +48,30 @@ body {
   box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
+/* Fixed image size inside card */
 .movie-card img {
+  flex-shrink: 0;
   width: 100%;
-  height: 300px;              /* fixed height */
-  object-fit: cover;          /* keeps aspect ratio, crops excess */
+  height: 300px;       /* fixed image height */
+  object-fit: cover;   /* keep aspect ratio, crop excess */
+  border-bottom: 1px solid #ddd;
 }
 
+/* Content area fills rest of the card height */
 .movie-card h3 {
-  margin: 0.5rem 0 1rem 0;
+  margin: 0.5rem 0 0.5rem 0;
   font-size: 1.1rem;
   color: #333;
   text-align: center;
   padding: 0 0.5rem;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .view-button {
-  background-color: #007bff; /* warm accent color */
+  background-color: #007bff;
   color: #222;
   border: none;
   padding: 0.5rem 1.2rem;
@@ -61,8 +81,10 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
   box-shadow: 0 4px 6px rgba(141, 182, 244, 0.7);
-  margin-bottom: 0.5rem;
+  margin: 0.5rem auto 1rem auto;
   outline-offset: 2px;
+  width: fit-content;
+  display: block;
 }
 
 .view-button:hover,
@@ -70,178 +92,4 @@ body {
   background-color: #0056b3;
   color: #fff;
   box-shadow: 0 6px 10px rgba(141, 182, 244, 0.7);
-}
-
-.app-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.site-header {
-  text-align: center;
-  padding: 1.5rem 1rem 1rem 1rem;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  margin-bottom: 2rem;
-}
-
-.site-header h1 {
-  font-size: 2.2rem;
-  color: #222;
-  margin-bottom: 0.3rem;
-}
-
-.site-header p {
-  color: #666;
-  font-size: 1rem;
-}
-
-.site-footer {
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: #888;
-  border-top: 1px solid #ddd;
-  margin-top: 3rem;
-}
-
-.movie-view-container {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fff;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  display: flex;
-  gap: 2rem;
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.movie-view-image {
-  width: 250px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-  flex-shrink: 0;
-}
-
-.movie-view-details {
-  flex: 1 1 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.movie-title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #222;
-}
-
-.movie-view-details p {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-
-.movie-view-details strong {
-  color: #007bff; /* Changed to blue */
-}
-
-.back-button {
-  align-self: flex-start;
-  margin-top: 2rem;
-  padding: 0.6rem 1.5rem;
-  font-size: 1rem;
-  background-color: #007bff; /* Changed to blue */
-  border: none;
-  border-radius: 25px;
-  color: #fff; /* white text on blue background */
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
-}
-
-.back-button:hover,
-.back-button:focus {
-  background-color: #0056b3; /* Darker blue on hover */
-  color: #fff;
-  outline: none;
-  box-shadow: 0 6px 12px rgba(0, 86, 179, 0.7);
-}
-
-/* Smaller screens - tablets and mobiles */
-@media (max-width: 1024px) {
-  .card-container {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem;
-  }
-
-  .movie-card img {
-    height: 220px;
-  }
-
-  .movie-view-container {
-    flex-direction: column;
-    max-width: 100%;
-    padding: 1.5rem;
-    gap: 1.5rem;
-  }
-
-  .movie-view-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin: 0 auto;
-  }
-
-  .movie-view-details {
-    flex: unset;
-  }
-
-  .movie-title {
-    font-size: 1.6rem;
-    text-align: center;
-  }
-}
-
-@media (max-width: 600px) {
-  body {
-    padding: 1rem;
-  }
-
-  .card-container {
-    grid-template-columns: 1fr;
-    padding: 0.5rem;
-  }
-
-  .movie-card img {
-    height: 180px;
-  }
-
-  .movie-card h3 {
-    font-size: 1rem;
-  }
-
-  .view-button {
-    padding: 0.4rem 1rem;
-    font-size: 0.85rem;
-  }
-
-  .movie-view-container {
-    padding: 1rem;
-    gap: 1rem;
-  }
-
-  .back-button {
-    width: 100%;
-    text-align: center;
-  }
 }
