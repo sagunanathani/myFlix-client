@@ -172,3 +172,53 @@ myFlix-client/
 git checkout auth-forms-feature /
 npm install /
 npm start
+
+4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
+
+🔀 Branch: feature-routing
+This branch implements state-based routing, a user profile view, and similar movies in the myFlix React client. Users can navigate between views, manage their profile, and explore related movies.
+
+✅ Features
+
+1. Routing & Navigation
+   Uses react-router-dom with BrowserRouter.
+   Replaces setSelectedMovie with <Link> navigation.
+   Navigation Bar:
+   Unauthenticated: Login / Signup
+   Authenticated: Home, Profile, Logout
+
+2. Profile View (profile-view.jsx)
+   Display & update user info (username, email, birthday, password).
+   Deregister account.
+   Show favorite movies with Favorite / Remove Favorite buttons.
+
+3. Similar Movies (movie-view.jsx)
+   Displays movies of the same genre as the selected movie.
+   Uses MovieCard to render similar movies.
+
+4. Styling
+   Bootstrap components for layout: Container, Row, Col, Card, Button.
+   Consistent styling for navigation, profile view, and similar movies.
+
+📁 Folder Structure
+src/
+├── index.html
+├── index.jsx
+├── index.scss
+└── components/
+├── login-view/login-view.jsx
+├── signup-view/signup-view.jsx
+├── main-view/main-view.jsx
+├── movie-card/movie-card.jsx
+├── movie-view/movie-view.jsx
+└── profile-view/profile-view.jsx
+
+💻 Run Locally
+git checkout feature-routing
+npm install
+npm start
+
+🧪 Testing
+Routing & Navigation: Verify navbar links and movie navigation.
+Profile View: Update user info, manage favorites, deregister account.
+Similar Movies: Ensure movies of the same genre appear; clicking navigates correctly.
