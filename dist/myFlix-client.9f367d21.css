@@ -14,18 +14,30 @@ body {
 }
 
 .card-container {
+  border-radius: 12px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  transition: box-shadow .3s, transform .3s;
   display: grid;
 }
 
+.card-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px #00000026;
+}
+
 .movie-card {
+  background: #fff;
   border-radius: 12px;
+  flex-direction: column;
+  height: 450px;
   transition: transform .2s ease-in-out;
+  display: flex;
   overflow: hidden;
+  box-shadow: 0 2px 8px #0000001a;
 }
 
 .movie-card:hover {
@@ -35,6 +47,8 @@ body {
 
 .movie-card img {
   object-fit: cover;
+  border-bottom: 1px solid #ddd;
+  flex-shrink: 0;
   width: 100%;
   height: 300px;
 }
@@ -42,9 +56,13 @@ body {
 .movie-card h3 {
   color: #333;
   text-align: center;
-  margin: .5rem 0 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-grow: 1;
+  margin: .5rem 0;
   padding: 0 .5rem;
   font-size: 1.1rem;
+  overflow: hidden;
 }
 
 .view-button {
@@ -54,11 +72,13 @@ body {
   background-color: #007bff;
   border: none;
   border-radius: 25px;
-  margin-bottom: .5rem;
+  width: fit-content;
+  margin: .5rem auto 1rem;
   padding: .5rem 1.2rem;
   font-size: .9rem;
   font-weight: 600;
   transition: background-color .3s, color .3s;
+  display: block;
   box-shadow: 0 4px 6px #8db6f4b3;
 }
 
@@ -66,178 +86,6 @@ body {
   color: #fff;
   background-color: #0056b3;
   box-shadow: 0 6px 10px #8db6f4b3;
-}
-
-.app-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.site-header {
-  text-align: center;
-  background-color: #fff;
-  border-radius: 12px;
-  margin-bottom: 2rem;
-  padding: 1.5rem 1rem 1rem;
-  box-shadow: 0 4px 12px #0000000d;
-}
-
-.site-header h1 {
-  color: #222;
-  margin-bottom: .3rem;
-  font-size: 2.2rem;
-}
-
-.site-header p {
-  color: #666;
-  font-size: 1rem;
-}
-
-.site-footer {
-  text-align: center;
-  color: #888;
-  border-top: 1px solid #ddd;
-  margin-top: 3rem;
-  padding: 1rem;
-  font-size: .9rem;
-}
-
-.movie-view-container {
-  color: #333;
-  background: #fff;
-  border-radius: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 2rem;
-  font-family: Poppins, sans-serif;
-  display: flex;
-  box-shadow: 0 8px 24px #0000001a;
-}
-
-.movie-view-image {
-  border-radius: 10px;
-  flex-shrink: 0;
-  width: 250px;
-  height: auto;
-  box-shadow: 0 4px 14px #0000001a;
-}
-
-.movie-view-details {
-  flex-direction: column;
-  flex: 300px;
-  justify-content: center;
-  display: flex;
-}
-
-.movie-title {
-  color: #222;
-  margin-bottom: 1rem;
-  font-size: 2rem;
-}
-
-.movie-view-details p {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-  line-height: 1.5;
-}
-
-.movie-view-details strong {
-  color: #007bff;
-}
-
-.back-button {
-  color: #fff;
-  cursor: pointer;
-  background-color: #007bff;
-  border: none;
-  border-radius: 25px;
-  align-self: flex-start;
-  margin-top: 2rem;
-  padding: .6rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: background-color .3s;
-  box-shadow: 0 4px 8px #007bff66;
-}
-
-.back-button:hover, .back-button:focus {
-  color: #fff;
-  background-color: #0056b3;
-  outline: none;
-  box-shadow: 0 6px 12px #0056b3b3;
-}
-
-@media (width <= 1024px) {
-  .card-container {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem;
-  }
-
-  .movie-card img {
-    height: 220px;
-  }
-
-  .movie-view-container {
-    flex-direction: column;
-    gap: 1.5rem;
-    max-width: 100%;
-    padding: 1.5rem;
-  }
-
-  .movie-view-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin: 0 auto;
-  }
-
-  .movie-view-details {
-    flex: unset;
-  }
-
-  .movie-title {
-    text-align: center;
-    font-size: 1.6rem;
-  }
-}
-
-@media (width <= 600px) {
-  body {
-    padding: 1rem;
-  }
-
-  .card-container {
-    grid-template-columns: 1fr;
-    padding: .5rem;
-  }
-
-  .movie-card img {
-    height: 180px;
-  }
-
-  .movie-card h3 {
-    font-size: 1rem;
-  }
-
-  .view-button {
-    padding: .4rem 1rem;
-    font-size: .85rem;
-  }
-
-  .movie-view-container {
-    gap: 1rem;
-    padding: 1rem;
-  }
-
-  .back-button {
-    text-align: center;
-    width: 100%;
-  }
 }
 
 .movie-view-card {
@@ -7724,6 +7572,7 @@ button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disab
 }
 
 .site-footer {
+  text-align: center;
   margin-top: auto;
   font-size: .9rem;
 }
