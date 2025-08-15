@@ -129,9 +129,16 @@ export const ProfileView = ({
       {favoriteMovies.length === 0 ? (
         <p>No favorite movies added yet.</p>
       ) : (
-        <Row>
+        <Row className="g-3">
           {favoriteMovies.map((movie) => (
-            <Col key={movie._id} md={4} className="mb-3">
+            <Col
+              key={movie._id}
+              xs={12} // full width on mobile
+              sm={6} // 2 per row on small screens
+              md={4} // 3 per row on medium+
+              lg={3} // 4 per row on large+
+              className="d-flex"
+            >
               <MovieCard
                 movie={movie}
                 user={user}

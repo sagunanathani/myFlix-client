@@ -39,17 +39,14 @@ export const MainView = () => {
 
   //Update user
   const handleUpdateUser = (formData, onSuccess) => {
-    // Map React formData keys to backend keys
     const updatedData = {
       username: formData.username,
-      password: formData.password || undefined, // only send if filled
       email: formData.email,
       birthday: formData.birthday,
     };
 
-    // Remove undefined password so it won't overwrite existing password
-    if (!updatedData.password) {
-      delete updatedData.password;
+    if (formData.password) {
+      updatedData.password = formData.password; // only if provided
     }
 
     fetch(`https://myflix-movie-api-2r07.onrender.com/users/${user.username}`, {
@@ -65,24 +62,43 @@ export const MainView = () => {
           let errorMessage = "Failed to update user";
           try {
             const errorData = await res.json();
-            console.log("Error details from server:", errorData);
             if (errorData.message) {
               errorMessage = errorData.message;
             } else {
               errorMessage = JSON.stringify(errorData);
             }
-          } catch {
-            // parsing error or no JSON in response
-          }
+          } catch {}
           throw new Error(errorMessage);
         }
         return res.json();
       })
-
       .then((updatedUser) => {
         console.log("Update successful. New user data:", updatedUser);
         setUser(updatedUser);
         localStorage.setItem("user", JSON.stringify(updatedUser));
+
+        // ✅ Automatically re-login if password or username was changed
+        if (formData.password || formData.username !== user.username) {
+          fetch("https://myflix-movie-api-2r07.onrender.com/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              username: updatedData.username,
+              password:
+                formData.password ||
+                prompt("Re-enter your password to confirm:"),
+            }),
+          })
+            .then((res) => res.json())
+            .then((loginData) => {
+              if (loginData.token) {
+                localStorage.setItem("token", loginData.token);
+                console.log("Auto-login successful");
+              }
+            })
+            .catch((err) => console.error("Auto-login failed", err));
+        }
+
         alert("Profile updated successfully!");
         if (typeof onSuccess === "function") onSuccess();
       })
@@ -133,7 +149,7 @@ export const MainView = () => {
       })
       .catch((error) => {
         console.error(error);
-        alert("Error adding favorite: " + err.message);
+        alert("Error adding favorite: " + error.message);
       });
   };
 
@@ -186,7 +202,7 @@ export const MainView = () => {
                     <Col className="mb-4" key={movie._id} md={3}>
                       <MovieCard
                         movie={movie}
-                        user={user}
+                        isFavorite={user?.favoriteMovies?.includes(movie._id)}
                         onAddFavorite={handleAddFavorite}
                         onRemoveFavorite={handleRemoveFavorite}
                       />
@@ -263,10 +279,10 @@ export const MainView = () => {
                 <Col>The list is empty!</Col>
               ) : (
                 <MovieView
-                  user={user}
                   movies={movies}
-                  onAddFavorite={handleAddFavorite}
-                  onRemoveFavorite={handleRemoveFavorite}
+                  user={user}
+                  handleAddFavorite={handleAddFavorite}
+                  handleRemoveFavorite={handleRemoveFavorite}
                 />
               )
             }

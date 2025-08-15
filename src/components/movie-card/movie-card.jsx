@@ -8,9 +8,9 @@ import "./movie-card.css";
 // The MovieCard function component
 export const MovieCard = ({
   movie,
-  isFavorite,
-  onAddFavorite,
-  onRemoveFavorite,
+  isFavorite = false,
+  onAddFavorite = () => {},
+  onRemoveFavorite = () => {},
 }) => {
   return (
     <Card>
