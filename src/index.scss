@@ -30,4 +30,25 @@ $body-bg: #f0f8ff; // AliceBlue
     width: auto !important;
     flex: 1 1 auto !important;
   }
+  .col-md-10 {
+    width: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  input,
+  button {
+    width: 100%;
+  }
 }
