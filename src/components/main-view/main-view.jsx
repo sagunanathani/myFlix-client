@@ -11,6 +11,8 @@ import { ProfileView } from "../profile-view/profile-view";
 import "./main-view.css";
 
 export const MainView = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   const [user, setUser] = useState(() => {
     const stored = localStorage.getItem("user");
     if (stored) {
@@ -198,16 +200,40 @@ export const MainView = () => {
                 <Col>The list is empty!</Col>
               ) : (
                 <>
-                  {movies.map((movie) => (
-                    <Col className="mb-4" key={movie._id} md={3}>
-                      <MovieCard
-                        movie={movie}
-                        isFavorite={user?.favoriteMovies?.includes(movie._id)}
-                        onAddFavorite={handleAddFavorite}
-                        onRemoveFavorite={handleRemoveFavorite}
-                      />
-                    </Col>
-                  ))}
+                  {/* Search input */}
+                  <Col md={12} className="mb-3">
+                    <input
+                      type="text"
+                      placeholder="Search movies..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      style={{
+                        width: "100%",
+                        padding: "0.5rem",
+                        fontSize: "1rem",
+                        borderRadius: "4px",
+                        border: "1px solid #ccc",
+                      }}
+                    />
+                  </Col>
+
+                  {/* Filtered movie list */}
+                  {movies
+                    .filter((movie) =>
+                      movie.Title.toLowerCase().includes(
+                        searchTerm.toLowerCase()
+                      )
+                    )
+                    .map((movie) => (
+                      <Col className="mb-4" key={movie._id} md={3}>
+                        <MovieCard
+                          movie={movie}
+                          isFavorite={user?.favoriteMovies?.includes(movie._id)}
+                          onAddFavorite={handleAddFavorite}
+                          onRemoveFavorite={handleRemoveFavorite}
+                        />
+                      </Col>
+                    ))}
                 </>
               )
             }
