@@ -1,3 +1,54 @@
+Hosting:
+
+Frontend (React app): Netlify - https://myflix-movies-sagunanathani.netlify.app/
+Backend API: (Render) - https://myflix-movie-api-2r07.onrender.com/
+git clone: https://github.com/sagunanathani/myFlix-client
+
+# myFlix Client
+
+Short & Clean Version:
+React.js frontend for browsing movies, viewing details, and managing favorites.
+
+## Features
+
+- Browse movies with cards displaying images and info
+- Filter movies by title
+- View detailed movie info
+- User authentication (login/signup)
+- Add movies to favorites
+
+## Technologies
+
+- React.js, React Router, Bootstrap/CSS
+- JWT authentication
+- LocalStorage for session persistence
+
+## Installation
+
+1. Clone the repo:
+
+```bash
+git clone:  https://github.com/sagunanathani/myFlix-client
+
+2. Install dependencies:
+npm install
+
+3. Run the app:
+npm start
+
+Hosting:
+    Frontend (Netlify): https://myflix-movies-sagunanathani.netlify.app/
+    Backend API (Render): https://myflix-movie-api-2r07.onrender.com/
+
+Project Evolution (Feature Branches):
+    render-api-movies: Integrated frontend with backend API (Render) and added PropTypes validation
+    auth-forms-feature: Implemented Login and Signup forms with session management
+    react-bootstrap-styling: Added Bootstrap styling and responsive layout
+    feature-routing: Implemented routing, profile view, and similar movies display
+    finalize-project: Final review, consistent styling, and movie filter feature
+
+
+longer version:
 # myFlix Client
 
 This is the front-end application for the myFlix project built with HTML, CSS, and JavaScript. Parcel is used as the bundler.
@@ -6,13 +57,11 @@ This is the front-end application for the myFlix project built with HTML, CSS, a
 
 1. Install dependencies:
 
-   ```bash
    npm install
-   ```
 
-   1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
-   🎬 Feature Branch: render-api-movies
-   This branch integrates the myFlix React client with the myFlix API, enabling the app to fetch and display real movie data from the backend. It also introduces component prop-type validation for improved type safety.
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+🎬 Feature Branch: render-api-movies
+This branch integrates the myFlix React client with the myFlix API, enabling the app to fetch and display real movie data from the backend. It also introduces component prop-type validation for improved type safety.
 
 ✅ Features Implemented
 🔗 API Integration
@@ -97,7 +146,8 @@ Fetch API
 Render (backend deployment)
 
 2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
-🔐 Feature Branch: auth-forms-feature This branch implements authentication forms for the myFlix React client, including Login and Signup functionality, with form validation, token storage, and authenticated API requests.
+🔐 Feature Branch: auth-forms-feature
+This branch implements authentication forms for the myFlix React client, including Login and Signup functionality, with form validation, token storage, and authenticated API requests.
 
 ✅ Features Implemented: 🔑 Authentication & Session Management Login view using form (LoginView) Validates user credentials before login On success, stores user & token in localStorage Logout button added in MainView for authenticated users Signup view using form (SignupView) Validates required fields: username, password, email, birthday Creates new user via POST to /users endpoint MainView conditionally displays views: Shows LoginView or SignupView if not authenticated Shows movie list if authenticated Fetch request to /movies includes Authorization: Bearer header User session persists across refresh via localStorage
 
@@ -222,3 +272,41 @@ npm start
 Routing & Navigation: Verify navbar links and movie navigation.
 Profile View: Update user info, manage favorites, deregister account.
 Similar Movies: Ensure movies of the same genre appear; clicking navigates correctly.
+
+5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555
+
+🔀 Branch: finalize-project
+
+A React.js frontend for browsing movies, viewing details, and managing favorites.
+
+## Features
+
+- Browse movies with cards displaying images and basic info
+- Filter movies by title
+- View detailed information about each movie
+- User authentication with login and signup
+- Add movies to favorites
+
+## Technologies Used
+
+- React.js
+- React Router
+- Bootstrap / CSS
+- JWT for authentication
+- LocalStorage for session persistence
+
+## Installation
+
+1. Clone the repo: `https://github.com/sagunanathani/myFlix-client/tree/finalize-project`
+2. Install dependencies: `npm install`
+3. Run the app: `npm start`
+
+## Hosting
+
+Hosted on Netlify: [https://myflix-movies-sagunanathani.netlify.app/]
+
+## Notes
+
+- Ensure your backend API is running before using the app
+- Compatible with modern browsers
+```
