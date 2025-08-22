@@ -193,7 +193,7 @@ export const MainView = () => {
             path="/"
             element={
               !user ? (
-                <Navigate to="/login" replace />
+                <Navigate to="/signin" replace />
               ) : movies.length === 0 ? (
                 <Col>The list is empty!</Col>
               ) : (
@@ -218,7 +218,7 @@ export const MainView = () => {
             path="/profile"
             element={
               !user ? (
-                <Navigate to="/login" replace />
+                <Navigate to="/signin" replace />
               ) : (
                 <Col md={6}>
                   <ProfileView
@@ -250,7 +250,7 @@ export const MainView = () => {
 
           {/* Login route */}
           <Route
-            path="/login"
+            path="/signin"
             element={
               user ? (
                 <Navigate to="/" />
@@ -274,7 +274,7 @@ export const MainView = () => {
             path="/movies/:movieId"
             element={
               !user ? (
-                <Navigate to="/login" replace />
+                <Navigate to="/signin" replace />
               ) : movies.length === 0 ? (
                 <Col>The list is empty!</Col>
               ) : (

@@ -8,7 +8,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
 
   const handleLogout = () => {
     onLoggedOut(); // Clears auth state in parent
-    navigate("/login");
+    navigate("/signin");
   };
 
   return (
@@ -33,7 +33,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
               <>
                 <Nav.Link
                   as={Link}
-                  to="/login"
+                  to="/signin"
                   style={{
                     fontWeight: 600,
                     color: "#0d6efd",
