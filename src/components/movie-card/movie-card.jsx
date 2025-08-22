@@ -14,7 +14,15 @@ export const MovieCard = ({
 }) => {
   return (
     <Card>
-      <Card.Img variant="top" src={movie.ImagePath} />
+      <Card.Img
+        variant="top"
+        src={movie.ImagePath}
+        style={{
+          height: "400px", // fixed height
+          objectFit: "cover", // scales and crops the image
+          width: "100%", // full card width
+        }}
+      />
       <Card.Body>
         <Card.Title>{movie.Title}</Card.Title>
         <Card.Text>{movie.Description}</Card.Text>
