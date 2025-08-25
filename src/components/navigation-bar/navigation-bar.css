@@ -1,0 +1,32 @@
+/* Navbar custom styles */
+.navbar-custom {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Brand styles */
+.navbar-brand-custom {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #0d6efd !important; /* Force Bootstrap override */
+}
+
+/* General nav links */
+.nav-link-custom {
+  font-weight: 600;
+  color: #0d6efd !important;
+  margin-right: 1rem;
+}
+
+/* Home/Profile links for logged-in users */
+.nav-link-home {
+  font-weight: 600;
+  color: #333 !important;
+  margin-right: 1rem;
+}
+
+/* Logout link */
+.nav-link-logout {
+  font-weight: 600;
+  color: #dc3545 !important; /* Force red color */
+  cursor: pointer;
+}

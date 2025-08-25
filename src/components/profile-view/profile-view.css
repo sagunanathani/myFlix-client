@@ -1,0 +1,40 @@
+
+
+/* Main container fills full screen */
+.profile-view {
+  min-height: 100vh; /* full height */
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+}
+
+/* Layout for big screens */
+@media (min-width: 992px) {
+  .profile-layout {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .profile-form-section {
+    flex: 1; /* smaller column */
+    max-width: 400px;
+  }
+
+  .favorites-section {
+    flex: 2; /* larger column */
+  }
+}
+
+/* Make sure favorites section grows */
+.favorites-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.favorites-section .movies-list {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

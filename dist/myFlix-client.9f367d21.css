@@ -88,6 +88,34 @@ body {
   box-shadow: 0 6px 10px #8db6f4b3;
 }
 
+.movie-card {
+  position: relative;
+}
+
+.movie-card-img {
+  object-fit: cover;
+  cursor: pointer;
+  width: 100%;
+  height: 400px;
+}
+
+.favorite-icon {
+  cursor: pointer;
+  font-size: 28px;
+  transition: transform .2s;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.favorite-icon:hover {
+  transform: scale(1.2);
+}
+
+.favorite-icon.favorite {
+  color: red;
+}
+
 .movie-view-card {
   border-radius: 12px;
   overflow: hidden;
@@ -362,6 +390,70 @@ button:hover {
   }
 }
 
+.navbar-custom {
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand-custom {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0d6efd !important;
+}
+
+.nav-link-custom {
+  margin-right: 1rem;
+  font-weight: 600;
+  color: #0d6efd !important;
+}
+
+.nav-link-home {
+  margin-right: 1rem;
+  font-weight: 600;
+  color: #333 !important;
+}
+
+.nav-link-logout {
+  cursor: pointer;
+  font-weight: 600;
+  color: #dc3545 !important;
+}
+
+.profile-view {
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+}
+
+@media (width >= 992px) {
+  .profile-layout {
+    gap: 2rem;
+    display: flex;
+  }
+
+  .profile-form-section {
+    flex: 1;
+    max-width: 400px;
+  }
+
+  .favorites-section {
+    flex: 2;
+  }
+}
+
+.favorites-section {
+  flex-direction: column;
+  flex: 1;
+  display: flex;
+}
+
+.favorites-section .movies-list {
+  flex-wrap: wrap;
+  flex: 1;
+  gap: 1rem;
+  display: flex;
+}
+
 .user-info {
   align-items: center;
   gap: 1rem;
@@ -389,6 +481,18 @@ button:hover {
 
 .logout-button:hover {
   background-color: #d32f2f;
+}
+
+.main-view-row {
+  padding: 0 1rem;
+}
+
+.search-input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  padding: .5rem;
+  font-size: 1rem;
 }
 
 *, :after, :before {

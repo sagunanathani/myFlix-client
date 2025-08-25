@@ -1,5 +1,6 @@
 // import the PropTypes library
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
@@ -12,35 +13,46 @@ export const MovieCard = ({
   onAddFavorite = () => {},
   onRemoveFavorite = () => {},
 }) => {
+  const navigate = useNavigate();
+  const handleFavoriteClick = () => {
+    if (isFavorite) {
+      onRemoveFavorite(movie._id);
+    } else {
+      onAddFavorite(movie._id);
+    }
+  };
+
+  const handleOpenMovie = () => {
+    navigate(`/movies/${movie._id}`);
+  };
+
   return (
-    <Card>
+    <Card className="movie-card">
+      {/* Favorite Icon */}
+      <div
+        className={`favorite-icon ${isFavorite ? "favorite" : ""}`}
+        onClick={handleFavoriteClick}
+      >
+        {isFavorite ? "❤️" : "🤍"} {/* Filled vs empty heart */}
+      </div>
+      {/* Movie Image with double-click to open */}
       <Card.Img
         variant="top"
         src={movie.ImagePath}
-        style={{
-          height: "400px", // fixed height
-          objectFit: "cover", // scales and crops the image
-          width: "100%", // full card width
-        }}
+        className="movie-card-img"
+        onDoubleClick={handleOpenMovie} // double-click on image opens movie
       />
+
       <Card.Body>
         <Card.Title>{movie.Title}</Card.Title>
         <Card.Text>{movie.Description}</Card.Text>
-        <Link to={`/movies/${movie._id}`} className="btn btn-primary me-2">
+        <Button
+          className="me-2"
+          variant="primary"
+          onClick={handleOpenMovie} // single click opens movie
+        >
           Open
-        </Link>
-        {isFavorite ? (
-          <Button variant="danger" onClick={() => onRemoveFavorite(movie._id)}>
-            Remove Favorite
-          </Button>
-        ) : (
-          <Button
-            variant="outline-primary"
-            onClick={() => onAddFavorite(movie._id)}
-          >
-            Add Favorite
-          </Button>
-        )}
+        </Button>
       </Card.Body>
     </Card>
   );

@@ -147,7 +147,7 @@ export const MainView = () => {
         console.log("Updated user after adding favorite:", updatedUser);
         setUser(updatedUser);
         localStorage.setItem("user", JSON.stringify(updatedUser)); // save locally
-        alert("Adding favorite successfully!");
+        //alert("Adding favorite successfully!");
       })
       .catch((error) => {
         console.error(error);
@@ -188,7 +188,7 @@ export const MainView = () => {
   return (
     <BrowserRouter>
       <NavigationBar user={user} onLoggedOut={handleLogout} />
-      <Row className="justify-content-md-center">
+      <Row className="justify-content-md-center main-view-row">
         <Routes>
           {/* Route for movies list */}
           <Route
@@ -207,13 +207,7 @@ export const MainView = () => {
                       placeholder="Search movies..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      style={{
-                        width: "100%",
-                        padding: "0.5rem",
-                        fontSize: "1rem",
-                        borderRadius: "4px",
-                        border: "1px solid #ccc",
-                      }}
+                      className="search-input"
                     />
                   </Col>
 

@@ -93,3 +93,36 @@ body {
   color: #fff;
   box-shadow: 0 6px 10px rgba(141, 182, 244, 0.7);
 }
+
+/* MovieCard container */
+.movie-card {
+  position: relative;
+}
+
+/* Movie image */
+.movie-card-img {
+  height: 400px;
+  object-fit: cover;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Favorite heart icon */
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.favorite-icon:hover {
+  transform: scale(1.2); /* small hover effect */
+}
+
+.favorite-icon.favorite {
+  color: red;
+}
+
+

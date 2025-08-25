@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { MovieCard } from "../movie-card/movie-card";
+import "./profile-view.css";
 
 export const ProfileView = ({
   user,
@@ -65,7 +66,7 @@ export const ProfileView = ({
   };
 
   return (
-    <div className="profile-view container mt-4">
+    <div className="profile-view container d-flex flex-column min-vh-100 mt-4">
       <h2>Profile</h2>
 
       <Form onSubmit={handleUpdate}>
@@ -114,42 +115,54 @@ export const ProfileView = ({
             onChange={handleChange}
           />
         </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Update Profile
-        </Button>
-        <Button variant="danger" onClick={handleDeregister} className="ms-3">
-          Delete Account
-        </Button>
+        {/* Buttons fixed at bottom */}
+        <div className="d-flex justify-content-start mt-auto">
+          <Button variant="primary" type="submit">
+            Update Profile
+          </Button>
+          <Button variant="danger" onClick={handleDeregister} className="ms-3">
+            Delete Account
+          </Button>
+        </div>
       </Form>
-
+      {/* Favorites Section */}
       <hr />
-
-      <h3>Your Favorite Movies</h3>
-      {favoriteMovies.length === 0 ? (
-        <p>No favorite movies added yet.</p>
-      ) : (
-        <Row className="g-3">
-          {favoriteMovies.map((movie) => (
-            <Col
-              key={movie._id}
-              xs={12} // full width on mobile
-              sm={6} // 2 per row on small screens
-              md={4} // 3 per row on medium+
-              lg={3} // 4 per row on large+
-              className="d-flex"
-            >
-              <MovieCard
-                movie={movie}
-                user={user}
-                isFavorite={true}
-                onRemoveFavorite={() => onRemoveFavorite(movie._id)}
-                onAddFavorite={() => onAddFavorite(movie._id)}
-              />
+      <div className="favorites-section mt-4">
+        <h3>Your Favorite Movies</h3>
+        {favoriteMovies.length === 0 ? (
+          <Row className="mt-3 justify-content-center">
+            <Col xs={12} md={8} className="text-center">
+              <p className="text-muted fs-5">
+                You haven’t added any favorite movies yet.
+              </p>
+              <Button variant="outline-primary" href="/" className="mt-2">
+                Browse Movies
+              </Button>
             </Col>
-          ))}
-        </Row>
-      )}
+          </Row>
+        ) : (
+          <Row className="g-3">
+            {favoriteMovies.map((movie) => (
+              <Col
+                key={movie._id}
+                xs={12} // full width on mobile
+                sm={6} // 2 per row on small screens
+                md={4} // 3 per row on medium+
+                lg={3} // 4 per row on large+
+                className="d-flex"
+              >
+                <MovieCard
+                  movie={movie}
+                  user={user}
+                  isFavorite={true}
+                  onRemoveFavorite={() => onRemoveFavorite(movie._id)}
+                  onAddFavorite={() => onAddFavorite(movie._id)}
+                />
+              </Col>
+            ))}
+          </Row>
+        )}
+      </div>
     </div>
   );
 };

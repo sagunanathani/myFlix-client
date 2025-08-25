@@ -1,15 +1,18 @@
-Hosting:
-
-Frontend (React app): Netlify - https://myflix-movies-sagunanathani.netlify.app/
-Backend API: (Render) - https://myflix-movie-api-2r07.onrender.com/
-git clone: https://github.com/sagunanathani/myFlix-client
-
 # myFlix Client
 
-Short & Clean Version:
+## Hosting
+
+- **Frontend (React app):** [Netlify](https://myflix-movies-sagunanathani.netlify.app/)
+- **Backend API:** [Render](https://myflix-movie-api-2r07.onrender.com/)
+- **GitHub Repo:** [myFlix-client](https://github.com/sagunanathani/myFlix-client)
+
+---
+
+## Short & Clean Version
+
 React.js frontend for browsing movies, viewing details, and managing favorites.
 
-## Features
+### Features
 
 - Browse movies with cards displaying images and info
 - Filter movies by title
@@ -17,23 +20,18 @@ React.js frontend for browsing movies, viewing details, and managing favorites.
 - User authentication (login/signup)
 - Add movies to favorites
 
-## Technologies
+### Technologies
 
 - React.js, React Router, Bootstrap/CSS
 - JWT authentication
 - LocalStorage for session persistence
 
-## Installation
-
-1. Clone the repo:
+### Installation
 
 ```bash
-git clone:  https://github.com/sagunanathani/myFlix-client
-
-2. Install dependencies:
+git clone https://github.com/sagunanathani/myFlix-client.git
+cd myFlix-client
 npm install
-
-3. Run the app:
 npm start
 
 Hosting:
@@ -48,7 +46,7 @@ Project Evolution (Feature Branches):
     finalize-project: Final review, consistent styling, and movie filter feature
 
 
-longer version:
+Long Version: Full Documentation
 # myFlix Client
 
 This is the front-end application for the myFlix project built with HTML, CSS, and JavaScript. Parcel is used as the bundler.
@@ -56,25 +54,26 @@ This is the front-end application for the myFlix project built with HTML, CSS, a
 ## How to Run
 
 1. Install dependencies:
-
    npm install
+2. Start the app:
+   npm start
 
-1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
-🎬 Feature Branch: render-api-movies
+1> 🔀 Feature Branch: render-api-movies
+
 This branch integrates the myFlix React client with the myFlix API, enabling the app to fetch and display real movie data from the backend. It also introduces component prop-type validation for improved type safety.
 
 ✅ Features Implemented
 🔗 API Integration
-Replaced hardcoded movies array with a useState([]) initialized empty array.
-Movie data is fetched from the hosted myFlix API (e.g., (https://flix-fusion-api-movies-51cd1c6d37f8.herokuapp.com/movies)) using a fetch() request.
-Fetched movies are stored in component state using setMovies(data).
-Movie data is passed into child components (MovieCard, MovieView) via props.
+    Replaced hardcoded movies array with a useState([]) initialized empty array.
+    Movie data is fetched from the hosted myFlix API (e.g., (https://flix-fusion-api-movies-51cd1c6d37f8.herokuapp.com/movies)) using a fetch() request.
+    Fetched movies are stored in component state using setMovies(data).
+    Movie data is passed into child components (MovieCard, MovieView) via props.
 
 📦 PropTypes Usage
-All major components now include PropTypes for props validation:
-MovieCard
-MovieView
-Others receiving props from MainView
+    All major components now include PropTypes for props validation:
+    MovieCard
+    MovieView
+    Others receiving props from MainView
 
 Example:
 MovieCard.propTypes = {
@@ -87,12 +86,12 @@ onMovieClick: PropTypes.func.isRequired
 };
 
 ⚙️ Backend Configuration (Part 1 Summary)
-A temporary change was made to the myFlix API backend for development:
-Removed passport.authenticate('jwt', { session: false }) middleware from /movies endpoint.
-This allows unauthenticated fetch requests while integrating the front-end.
-Backend GitHub branch: remove-auth-temporarily
-Updated deployment pushed to Heroku:
-git push heroku main
+    A temporary change was made to the myFlix API backend for development:
+    Removed passport.authenticate('jwt', { session: false }) middleware from /movies endpoint.
+    This allows unauthenticated fetch requests while integrating the front-end.
+    Backend GitHub branch: remove-auth-temporarily
+    Updated deployment pushed to Heroku:
+    git push heroku main
 
 📁 Project Structure
 myFlix-client/
@@ -145,37 +144,7 @@ PropTypes
 Fetch API
 Render (backend deployment)
 
-2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
-🔐 Feature Branch: auth-forms-feature
-This branch implements authentication forms for the myFlix React client, including Login and Signup functionality, with form validation, token storage, and authenticated API requests.
-
-✅ Features Implemented: 🔑 Authentication & Session Management Login view using form (LoginView) Validates user credentials before login On success, stores user & token in localStorage Logout button added in MainView for authenticated users Signup view using form (SignupView) Validates required fields: username, password, email, birthday Creates new user via POST to /users endpoint MainView conditionally displays views: Shows LoginView or SignupView if not authenticated Shows movie list if authenticated Fetch request to /movies includes Authorization: Bearer header User session persists across refresh via localStorage
-
-🧪 Validation Both forms include basic client-side validation: Required field checks Email input type for signup Date input type for birthday
-
-📁 Folder Structure myFlix-client/ ├── package.json └── src/ ├── index.html ├── index.jsx ├── index.scss └── components/ ├── login-view/ │ └── login-view.jsx ├── signup-view/ │ └── signup-view.jsx ├── main-view/ │ └── main-view.jsx ├── movie-card/ │ └── movie-card.jsx └── movie-view/ └── movie-view.jsx
-
-💻 To Run This Branch Locally: git checkout auth-forms-feature / npm install / npm start
-
-3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
-🔀 Feature Branch: react-bootstrap-styling
-This branch implements React Bootstrap styling across the myFlix React client, improving the visual layout and responsiveness of the application.
-
-✅ Features Added:
-Installed react-bootstrap and bootstrap via npm
-Imported Bootstrap styles in src/index.scss
-Applied a responsive layout using <Container>, <Row>, and <Col> in MainView
-Replaced standard HTML elements with React Bootstrap components:
-Form, Button, Card, Container, Row, Col, etc.
-Customized Bootstrap components to maintain consistent UI/UX
-Improved login and signup forms with Bootstrap styling
-
-💻 To test this branch locally:
-git checkout react-bootstrap-styling
-npm install
-npm start
-
-🔐 Feature Branch: auth-forms-feature
+2> 🔀 Feature Branch: auth-forms-feature
 This branch implements authentication forms for the myFlix React client, including Login and Signup functionality, with form validation, token storage, and authenticated API requests.
 
 ✅ Features Implemented:
@@ -192,6 +161,11 @@ Shows LoginView or SignupView if not authenticated
 Shows movie list if authenticated
 Fetch request to /movies includes Authorization: Bearer <token> header
 User session persists across refresh via localStorage
+In Short:
+Login form → stores user + JWT token in localStorage
+Signup form → validates username, password, email, birthday
+API requests include Authorization: Bearer <token> header
+Session persists on refresh
 
 🧪 Validation
 Both forms include basic client-side validation:
@@ -223,9 +197,26 @@ git checkout auth-forms-feature /
 npm install /
 npm start
 
-4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
+3> 🔀 Feature Branch: react-bootstrap-styling
 
-🔀 Branch: feature-routing
+This branch implements React Bootstrap styling across the myFlix React client, improving the visual layout and responsiveness of the application.
+
+✅ Features Added:
+Installed react-bootstrap and bootstrap via npm
+Imported Bootstrap styles in src/index.scss
+Applied a responsive layout using <Container>, <Row>, and <Col> in MainView
+Replaced standard HTML elements with React Bootstrap components:
+Form, Button, Card, Container, Row, Col, etc.
+Customized Bootstrap components to maintain consistent UI/UX
+Improved login and signup forms with Bootstrap styling
+
+💻 To test this branch locally:
+git checkout react-bootstrap-styling
+npm install
+npm start
+
+4> 🔀 Branch: feature-routing
+
 This branch implements state-based routing, a user profile view, and similar movies in the myFlix React client. Users can navigate between views, manage their profile, and explore related movies.
 
 ✅ Features
@@ -273,9 +264,7 @@ Routing & Navigation: Verify navbar links and movie navigation.
 Profile View: Update user info, manage favorites, deregister account.
 Similar Movies: Ensure movies of the same genre appear; clicking navigates correctly.
 
-5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555
-
-🔀 Branch: finalize-project
+5> 🔀 Branch: finalize-project
 
 A React.js frontend for browsing movies, viewing details, and managing favorites.
 
